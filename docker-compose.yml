@@ -5,7 +5,7 @@ services:
     container_name: code_api
     # container_name: flask_app
     restart: always
-    build: ../code_api
+    build: ./code_api
     # build: ./flask_app
     ports:
       - "8000:8000"
@@ -14,7 +14,7 @@ services:
   nginx:
     container_name: nginx
     restart: always
-    build: ../nginx
+    build: ./nginx
     # build: ./nginx
     ports:
       - "80:80"
