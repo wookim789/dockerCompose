@@ -10,7 +10,8 @@ services:
     ports:
       - "8000:8000"
     command: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
-  
+    networks:
+      backend:
   nginx_conf:
     container_name: nginx_conf
     restart: always
@@ -20,3 +21,8 @@ services:
       - "80:80"
     depends_on:
       - code_walk
+    networks:
+      backend:
+        
+networks:
+  backend:
