@@ -3,26 +3,22 @@ version: '3'
 services:
   code_walk:
     container_name: code_walk
-    # container_name: flask_app
     restart: always
     build: ../code_walk
-    # build: ./flask_app
     ports:
       - "8000:8000"
     command: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
-    networks:
-      backend:
+    # networks:
+      # backend:
   nginx_conf:
-    container_name: nginx_conf
+    container_name: ng
     restart: always
     build: ../nginx_conf
-    # build: ./nginx
     ports:
       - "80:80"
     depends_on:
       - code_walk
-    networks:
-      backend:
-        
-networks:
-  backend:
+    # networks:
+      # backend:
+# networks:
+  # backend:
